@@ -5,10 +5,12 @@ import styles from './Projects.module.css'
 import Container from '../layout/Container'
 import LinkButton from '../layout/LinkButton';
 import ProjectCard from '../Project/ProjectCard';
+import Loading from '../layout/Loading';
 
 function Projects()
 {
     const [projects, setProjects] = useState([])
+    const [removeLoading, setRemoveLoading] = useState(false)
 
     const location = useLocation()
     let message = ''
@@ -29,6 +31,7 @@ function Projects()
         .then((data => {
             console.log(data)
             setProjects(data)
+            setRemoveLoading(true)
         }))
         .catch((err) => console.log(err))
     }, [])
@@ -51,6 +54,10 @@ function Projects()
                         key={project.id}
                     />
                 ))}
+                {!removeLoading && <Loading/>}
+                {removeLoading && projects.length === 0 &&
+                    <p>Não há projetos cadastrados!</p>
+                }
             </Container>
         </div>
     )

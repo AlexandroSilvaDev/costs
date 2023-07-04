@@ -7,6 +7,7 @@ import ProjectForm from '../Project/ProjectForm'
 import Message from '../layout/Message'
 import ServiceForm from '../service/ServiceForm'
 import { parse, v4 as uuidv4 } from 'uuid'
+import ServiceCard from '../service/ServiceCard'
 
 function Project()
 {
@@ -17,6 +18,7 @@ function Project()
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState()
     const [type, setType] = useState()
+    const [services, setServices] = useState([])
 
     useEffect(() => {
         fetch(`http://localhost:5000/projects/${id}`, {
@@ -28,6 +30,7 @@ function Project()
         .then((resp) => resp.json())
         .then((data) => {
             setProject(data)
+            setServices(data.services)
         })
         .catch((err) => console.log(err))
     }, [id])
@@ -97,10 +100,14 @@ function Project()
         })
         .then((resp) => resp.json())
         .then((data) => {
-            // exibir os serviços
-            console.log(data)
+            setShowServiceForm(false)
         })
         .catch((err) => console.log(err))
+    }
+
+    function removeService()
+    {
+
     }
 
     function toggleProjectForm()
@@ -162,7 +169,19 @@ function Project()
                     </div>
                     <h2>Serviços</h2>
                     <Container customClass="start">
-                        <p>itens de serviço</p>
+                        {services.length > 0 && 
+                            services.map((service) => (
+                                <ServiceCard 
+                                    id={service.id}
+                                    name={service.name}
+                                    cost={service.cost}
+                                    description={service.description}
+                                    key={service.id}
+                                    handleRemove={removeService}
+                                />
+                            ))
+                        }
+                        {services.length === 0 && <p>Não há serviços cadastrados</p>}
                     </Container>
                 </Container>               
             </div>

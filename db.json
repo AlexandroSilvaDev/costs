@@ -7,39 +7,8 @@
         "id": "5",
         "name": "Marketing"
       },
-      "cost": 1000,
-      "services": [
-        {
-          "name": "meu novo serviço",
-          "cost": "100",
-          "description": "Faz isso aqui",
-          "id": "6e7e0639-10d5-4a48-aa56-9f2e7a8c967c"
-        },
-        {
-          "name": "meu novo serviço",
-          "cost": "100",
-          "description": "Faz isso aqui",
-          "id": "2fd5130c-604a-43c9-97ed-546c972ce7c5"
-        },
-        {
-          "name": "meu novo serviço",
-          "cost": "100",
-          "description": "Faz isso aqui",
-          "id": "2fd5130c-604a-43c9-97ed-546c972ce7c5"
-        },
-        {
-          "name": "Teste",
-          "cost": "500",
-          "description": "Faz isso aqui",
-          "id": "45443aad-7161-4ff5-9458-f28c93119789"
-        },
-        {
-          "name": "Teste",
-          "cost": "200",
-          "description": "Faz isso aqui",
-          "id": "e8268ce5-397a-4b56-89de-eb496d0b9622"
-        }
-      ],
+      "cost": 100,
+      "services": [],
       "id": 1
     },
     {

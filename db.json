@@ -1,8 +1,8 @@
 {
   "projects": [
     {
-      "name": "Teste",
-      "budget": "5000",
+      "name": "Projeto atualizado",
+      "budget": "13000",
       "category": {
         "id": "5",
         "name": "Marketing"
